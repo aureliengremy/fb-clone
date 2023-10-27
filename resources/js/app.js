@@ -6,7 +6,7 @@ import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import { createPinia } from 'pinia';
-import piniaPluginPersistedState from '@pinia/plugin-persistedstate';
+import piniaPluginPersistedState from 'pinia-plugin-persistedstate';
 
 const pinia = createPinia();
 
