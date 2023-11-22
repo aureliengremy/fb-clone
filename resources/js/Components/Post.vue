@@ -76,7 +76,7 @@
       </div>
 
       <!-- <div v-if="comments" id="Comments" class="max-h-[120px] overflow-auto pb-2 px-4"> -->
-      <div class="max-w-[120px] overflow-auto pb-2 px-4">
+      <div id="Comments" class="max-w-[120px] overflow-auto pb-2 px-4">
         <!-- <div
           class="flex items-center justify-between pb-2"
           v-for="comment in comments"
@@ -90,6 +90,10 @@
                 :src="comment.user.image"
               />
             </Link> -->
+            <img
+              class="rounded-full ml-1 min-w-[36px] max-h-[36px]"
+              src="https://images.unsplash.com/photo-1699174700778-4d7364cb0a24?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
             <div class="flex items-center w-full">
               <div class="flex items-center bg-[#EFF2F5] text-xs p-2 rounded-lg w-full">
                 <!-- {{ comment.text }} -->
