@@ -34,7 +34,9 @@ let showMenu = ref(false);
       <!-- <Link :href="route('posts.index')" class="pl-3 min-w-[55px]">
         <img class="w-[40px]" src="/images/icons/FacebookLogoCircle.png" />
       </Link> -->
-      FB
+      <Link href="/" class="pl-3 min-w-[55px]">
+        <img class="w-[40px]" src="/images/icons/FacebookLogoCircle.png" />
+      </Link>
       <div
         class="flex items-center justify-center bg-[#EFF2F5] p-1 rounded-full h-[40px] ml-2"
       >
