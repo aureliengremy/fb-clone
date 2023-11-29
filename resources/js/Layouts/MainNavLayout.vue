@@ -13,7 +13,7 @@ import FacebookMessenger from "vue-material-design-icons/FacebookMessenger.vue";
 import Bell from "vue-material-design-icons/Bell.vue";
 import Logout from "vue-material-design-icons/Logout.vue";
 
-// import CropperModal from "@/Components/CropperModal.vue";
+import CropperModal from "@/Components/CropperModal.vue";
 
 import { useGeneralStore } from "@/stores/general";
 import { storeToRefs } from "pinia";
@@ -134,10 +134,10 @@ let showMenu = ref(false);
     </div>
   </div>
 
-  <!-- <CreatePostOverlay v-if="isPostOverlay" @showModal="isPostOverlay = false" />
+  <!-- <CreatePostOverlay v-if="isPostOverlay" @showModal="isPostOverlay = false" /> -->
 
   <CropperModal v-if="isCropperModal" @showModal="isCropperModal = false" />
 
-  <ImageDisplay v-if="isImageDisplay" /> -->
+  <!-- <ImageDisplay v-if="isImageDisplay" /> -->
   <slot />
 </template>
