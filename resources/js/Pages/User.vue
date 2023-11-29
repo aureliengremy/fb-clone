@@ -201,7 +201,10 @@
                             </span> -->
               <span class="w-1/3">
                 <img
-                  @click="isImageDisplay = photo.image"
+                  @click="
+                    isImageDisplay =
+                      'https://images.unsplash.com/photo-1699174700778-4d7364cb0a24?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                  "
                   class="aspect-square object-cover p-1 rounded-lg cursor-pointer"
                   src="https://images.unsplash.com/photo-1695667937079-b59c63660cfc?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 />
