@@ -187,18 +187,31 @@
           <div class="bg-white p-3 mt-4 rounded-lg shadow-lg">
             <div class="font-extrabold pb-2 text-xl">Photos</div>
             <div class="flex flex-wrap items-center justify-start w-full">
-              <!-- <span
-                                v-for="photo in posts.data"
-                                :key="photo"
+<!--              <span-->
+<!--                                v-for="photo in posts.data"-->
+<!--                                :key="photo"-->
+<!--                                class="w-1/3"-->
+<!--                                v-show="photo.image !== null"-->
+<!--                            >-->
+<!--                                <img-->
+<!--                                    @click="isImageDisplay = photo.image"-->
+<!--                                    class="aspect-square object-cover p-1 rounded-lg cursor-pointer"-->
+<!--                                    :src="photo.image"-->
+<!--                                >-->
+<!--              </span>-->
+                <span
+
                                 class="w-1/3"
-                                v-show="photo.image !== null"
                             >
                                 <img
-                                    @click="isImageDisplay = photo.image"
+                                    @click="
+        isImageDisplay =
+          'https://images.unsplash.com/photo-1699174700778-4d7364cb0a24?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+      "
                                     class="aspect-square object-cover p-1 rounded-lg cursor-pointer"
-                                    :src="photo.image"
+                                    src="https://images.unsplash.com/photo-1699174700778-4d7364cb0a24?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                 >
-                            </span> -->
+              </span>
               <span class="w-1/3">
                 <img
                   @click="
