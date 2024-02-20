@@ -17,10 +17,10 @@ return new class extends Migration
             $table->unsignedBigInteger('post_id');
             $table->unsignedBigInteger('user_id');
 
-            $this->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
-            $this->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $this->text('text');
+            $table->text('text');
 
             $table->timestamps();
         });
