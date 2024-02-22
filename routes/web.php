@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +31,14 @@ Route::get('/user', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [PostController::class, 'index'])->name('posts.index');
+    Route::post('/post', [PostController::class, 'store'])->name('posts.store');
+    Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
+
+    Route::post('/comment', [CommentController::class, 'store'])->name('comments.store');
+    Route::delete('/comment/{id}', [CommentController::class, 'destroy'])->name('comments.destroy');
+
+    Route::get('/user/{id}', [UserController::class, 'show'])->name('user.show');
+    Route::post('/user/update-image', [UserController::class, 'updateImage'])->name('user.updateImage');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
