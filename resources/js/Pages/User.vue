@@ -1,6 +1,4 @@
 <template>
-    {{ posts }}
-    {{ user }}
     <Head title="Profile"/>
 
     <MainNavLayout>
