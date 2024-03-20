@@ -102,26 +102,24 @@ let showMenu = ref(false);
       </button>
       <div class="flex items-center justify-center relative">
         <button @click="showMenu = !showMenu">
-          <!-- <img
-            class="rounded-full ml-1 min-w-[40px] max-h-[40px] cursor-pointer"
-            :src="user.image"
-          /> -->
-          img user
+            <img
+                class="rounded-full ml-1 min-w-[40px] max-h-[40px] cursor-pointer"
+                :src="user.image"
+            />
         </button>
         <div
           v-if="showMenu"
           class="absolute bg-white shadow-xl top-10 right-0 w-[330px] rounded-lg p-1 border mt-1"
         >
-          <!-- <Link :href="route('user.show', { id: user.id })" @click="showMenu = !showMenu"> -->
-          <div class="flex items-center gap-3 hover:bg-gray-200 p-2 rounded-lg">
-            <!-- <img
-              class="rounded-full ml-1 min-w-[35px] max-h-[35px] cursor-pointer"
-              :src="user.image"
-            /> -->
-            <!-- <span>{{ user.name }}</span> -->
-            username
-          </div>
-          <!-- </Link> -->
+           <Link :href="route('user.show', { id: user.id })" @click="showMenu = !showMenu">
+              <div class="flex items-center gap-3 hover:bg-gray-200 p-2 rounded-lg">
+                <img
+                  class="rounded-full ml-1 min-w-[35px] max-h-[35px] cursor-pointer"
+                  :src="user.image"
+                />
+                <span>{{ user.name }}</span>
+              </div>
+           </Link>
           <Link class="w-full" :href="route('logout')" as="button" method="post">
             <div class="flex items-center gap-3 hover:bg-gray-200 px-2 py-2.5 rounded-lg">
               <Logout class="pl-2" :size="30" />
