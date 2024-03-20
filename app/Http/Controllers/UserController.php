@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Services\ImageService;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class UserController extends Controller
 {
