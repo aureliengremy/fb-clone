@@ -104,7 +104,7 @@ let showMenu = ref(false);
         <button @click="showMenu = !showMenu">
             <img
                 class="rounded-full ml-1 min-w-[40px] max-h-[40px] cursor-pointer"
-                :src="user.image"
+                :src="user.image || '/images/user-placeholder.png'"
             />
         </button>
         <div
