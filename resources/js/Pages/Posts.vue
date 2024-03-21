@@ -66,10 +66,10 @@
                     id="PostsSection"
                     class="row-span-6 max-w-[600px] lg:mx-0 mx-auto overflow-auto"
                 >
-                    <!-- :placeholder="'What\'s on your mind ' + user.name" -->
+
                     <CreatePostBox
-                        image="https://images.unsplash.com/photo-1695667937079-b59c63660cfc?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        placeholder="What's on your mind?"
+                        :image="user.image"
+                        :placeholder="'What\'s on your mind ' + user.name"
                     />
                     <div v-for="post in posts.data" :key="post">
                         <Post :user="post.user" :post="post" :comments="post.comments"/>

@@ -19,17 +19,17 @@
                     <div class="p-4">
 
 
-<!--                        <div class="flex items-center">-->
-<!--                            <img class="rounded-full ml-1 min-w-[45px] max-h-[45px]" :src="user.image">-->
-<!--                            <div class="ml-4">-->
-<!--                                <div class="font-extrabold">{{ user.name }}</div>-->
-<!--                                <div class="flex items-center justify-between w-[100px] bg-gray-200 p-0.5 px-2 rounded-lg">-->
-<!--                                    <Earth :size="18"/>-->
-<!--                                    <span class="font-bold pl-1.5 text-[13px]">Public</span>-->
-<!--                                    <ChevronDown class="pr-10 pl-1" :size="18"/>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
+                        <div class="flex items-center">
+                            <img class="rounded-full ml-1 min-w-[45px] max-h-[45px]" :src="user.image">
+                            <div class="ml-4">
+                                <div class="font-extrabold">{{ user.name }}</div>
+                                <div class="flex items-center justify-between w-[100px] bg-gray-200 p-0.5 px-2 rounded-lg">
+                                    <Earth :size="18"/>
+                                    <span class="font-bold pl-1.5 text-[13px]">Public</span>
+                                    <ChevronDown class="pr-10 pl-1" :size="18"/>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="max-h-[350px] overflow-auto">
                             <textarea
