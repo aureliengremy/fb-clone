@@ -276,7 +276,7 @@
     </MainNavLayout>
 </template>
 
-<script setup>
+<script>
 import {Head, Link, usePage} from "@inertiajs/vue3";
 import MainNavLayout from "@/Layouts/MainNavLayout.vue";
 import CreatePostBox from "@/Components/CreatePostBox.vue";
@@ -293,8 +293,33 @@ import Restore from "vue-material-design-icons/Restore.vue";
 import VideoImage from "vue-material-design-icons/VideoImage.vue";
 import DotsHorizontal from "vue-material-design-icons/DotsHorizontal.vue";
 
-defineProps({posts: Object} )
-const user = usePage().props.auth.user;
+export default {
+    props: {
+        posts: Object,
+    },
+    components: {
+        Head,
+        MainNavLayout,
+        CreatePostBox,
+        Post,
+        Link,
+        Magnify,
+        TelevisionPlay,
+        StorefrontOutline,
+        AccountGroup,
+        AccountMultiple,
+        Flag,
+        ClockTimeTwoOutline,
+        Restore,
+        VideoImage,
+        DotsHorizontal,
+    },
+    data() {
+        return {
+            user: usePage().props.auth.user,
+        };
+    },
+}
 </script>
 
 <style lang="scss" scoped></style>

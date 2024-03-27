@@ -100,8 +100,7 @@
     </div>
 </template>
 
-<script setup>
-import {toRefs, reactive} from "vue";
+<script>
 import {Link, router} from "@inertiajs/vue3";
 
 import AccountMultiple from "vue-material-design-icons/AccountMultiple.vue";
@@ -109,49 +108,63 @@ import ThumbUp from "vue-material-design-icons/ThumbUp.vue";
 import Check from "vue-material-design-icons/Check.vue";
 import Delete from "vue-material-design-icons/Delete.vue";
 
-import {useGeneralStore} from "@/stores/general";
+
 import {storeToRefs} from "pinia";
+import {useGeneralStore} from "@/stores/general";
 
-const useGeneral = useGeneralStore();
-const {isImageDisplay} = storeToRefs(useGeneral);
-
-const form = reactive({comment: null});
-
-const props = defineProps({
-    user: Object,
-    post: Object,
-    comments: Object,
-});
-
-const {post, user, comments} = toRefs(props);
-
-const createComment = () => {
-    router.post(
-        "/comment",
-        {
-            post_id: post.value.id,
-            text: form.comment,
+export default {
+    components: {
+        Link,
+        AccountMultiple,
+        ThumbUp,
+        Check,
+        Delete,
+    },
+    props: {
+        user: Object,
+        post: Object,
+        comments: Object,
+    },
+    data() {
+        return {
+            form: {
+                comment: null,
+            },
+        };
+    },
+    computed: {
+        isImageDisplay() {
+            const useGeneral = useGeneralStore();
+            return storeToRefs(useGeneral);
         },
-        {
-            preserveScroll: true,
-        }
-    );
-};
+    },
+    methods: {
+        createComment() {
+            router.post(
+                "/comment",
+                {
+                    post_id: this.post.id,
+                    text: this.form.comment,
+                },
+                {
+                    preserveScroll: true,
+                }
+            );
+        },
+        deleteComment(id) {
+            router.delete("/comment/" + id, {
+                preserveScroll: true,
+            });
+        },
+        deletePost(id) {
+            router.delete("/post/" + id, {
+                preserveScroll: true,
+            });
+        },
+        isUser() {
+            router.get("/user/" + this.user.id);
+        },
 
-const deleteComment = (id) => {
-    router.delete("/comment/" + id, {
-        preserveScroll: true,
-    });
+    }
 };
-
-const deletePost = (id) => {
-    router.delete("/post/" + id, {
-        preserveScroll: true,
-    });
-};
-
-const isUser = () => {
-    router.get("/user/" + user.value.id);
-};
-
 </script>
