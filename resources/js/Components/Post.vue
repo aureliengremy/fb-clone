@@ -2,7 +2,8 @@
     <div id="Post" class="w-full bg-white rounded-lg my-4 shadow-md">
         <div class="flex items-center py-3 px-3">
             <button @click="isUser" class="mr-2">
-                <img class="rounded-full ml-1 min-w-[42px] max-h-[42px]" :src="user.image || '/images/user-placeholder.png'"/>
+                <img class="rounded-full ml-1 min-w-[42px] max-h-[42px]"
+                     :src="user.image || '/images/user-placeholder.png'"/>
             </button>
             <div class="flex items-center justify-between p-2 rounded-full w-full">
                 <div>
@@ -13,11 +14,11 @@
                     </div>
                 </div>
                 <div class="flex items-center">
-                    <!-- <button
-                      @click="deletePost(post.id)"
-                      class="rounded-full p-1.5 cursor-pointer hover:bg-[#F2F2F2]"
-                    > -->
-                    <button>
+<!--                        v-if="$page.props.auth.user.id === post.user_id"-->
+                    <button
+                        @click="deletePost(post.id)"
+                        class="rounded-full p-1.5 cursor-pointer hover:bg-[#F2F2F2]"
+                    >
                         <Delete fillColor="#64676B"/>
                     </button>
                 </div>
@@ -43,7 +44,7 @@
                     <Link :href="route('user.show', { id: $page.props.auth.user.id })" class="mr-2">
                         <img
                             class="rounded-full ml-1 min-w-[36px] max-h-[36px]"
-                            :src="$page.props.auth.user.image"
+                            :src="user.image"
                         />
                     </Link>
                     <div

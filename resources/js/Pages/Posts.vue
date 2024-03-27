@@ -7,16 +7,16 @@
             >
                 <div id="LeftSection" class="xl:w-[345px] lg:block hidden">
                     <div class="pt-4 max-w-[320px] pr-4">
-                        <!-- :href="route('user.show', { id: user.id })" -->
+                        {{ user.id }}
                         <Link
-                            href="/"
+                            :href="route('user.show', { id: user.id })"
                             class="flex items-center justify-start w-full cursor-pointer hover:bg-[#E5E6E9] p-2 rounded-md"
                         >
                             <img
                                 class="rounded-full ml-1 min-w-[38px] max-h-[38px]"
-                                src="https://images.unsplash.com/photo-1607863680198-23d4b2565df0?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                :src="user.image"
                             />
-                            <div class="text-[15px] text-gray-800 font-extrabold pl-3">Name</div>
+                            <div class="text-[15px] text-gray-800 font-extrabold pl-3">{{ user.name }}</div>
                         </Link>
                         <button
                             class="flex items-center justify-start w-full cursor-pointer hover:bg-[#E5E6E9] px-2 py-1.5 rounded-md"

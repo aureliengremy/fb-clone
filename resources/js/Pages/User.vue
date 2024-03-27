@@ -176,14 +176,13 @@
                         <div class="flex flex-wrap items-center justify-start w-full">
               <span
                   :key="photo"
-                  class="w-1/3"
                   v-for="photo in posts.data"
                   v-show="photo.image !== null"
               >
                 <img
                     v-if="photo.image"
                     @click="isImageDisplay = photo.image"
-                    class="aspect-square object-cover p-1 rounded-lg cursor-pointer"
+                    class="w-1/3 aspect-square object-cover p-1 rounded-lg cursor-pointer"
                     :src="photo.image"
                 >
               </span>
@@ -193,14 +192,11 @@
 
                 <div id="PostsSection" class="w-full md:w-7/12 overflow-auto">
                     <CreatePostBox
-                                  v-if="$page.props.auth.user.id === user.id"
-                                  :image="user.image"
-                                  :placeholder="'What\'s on your mind ' + user.name "
-                              />
+                        v-if="$page.props.auth.user.id === user.id"
+                        :image="user.image"
+                        :placeholder="'What\'s on your mind ' + user.name "
+                    />
 
-                              <div v-for="post in posts.data" :key="post">
-                                  <Post :user="post.user" :post="post" :comments="post.comments" />
-                              </div>
                     <div v-for="post in posts.data" :key="post">
                         <Post :user="post.user" :post="post" :comments="post.comments"/>
                     </div>
@@ -211,7 +207,7 @@
 </template>
 
 <script setup>
-import {Link, Head} from "@inertiajs/vue3";
+import {Link, Head, usePage} from "@inertiajs/vue3";
 import MainNavLayout from "@/Layouts/MainNavLayout.vue";
 import CreatePostBox from "@/Components/CreatePostBox.vue";
 import Post from "@/Components/Post.vue";
@@ -226,4 +222,5 @@ const useGeneral = useGeneralStore();
 const {isCropperModal, isImageDisplay} = storeToRefs(useGeneral);
 
 defineProps({posts: Object, user: Object})
+const user = usePage().props.auth.user;
 </script>

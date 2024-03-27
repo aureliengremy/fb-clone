@@ -109,10 +109,11 @@ const crop = () => {
   data.append("left", coordinates.left || "");
   data.append("top", coordinates.top || "");
 
-  // Send to backend
-  // router.post("/user/update-image", data, {
-  //   preserveState: false,
-  // });
+
+  router.post("/user/update-image", data, {
+    preserveState: false,
+  });
+
   emit("showModal", false);
 };
 </script>
