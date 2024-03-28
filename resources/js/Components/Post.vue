@@ -13,8 +13,8 @@
                         <AccountMultiple class="ml-1" :size="15" fillColor="#64676B"/>
                     </div>
                 </div>
-                <div class="flex items-center">
-<!--                        v-if="$page.props.auth.user.id === post.user_id"-->
+                <div class="flex items-center"
+                     v-if="$page.props.auth.user.id === post.user.id" >
                     <button
                         @click="deletePost(post.id)"
                         class="rounded-full p-1.5 cursor-pointer hover:bg-[#F2F2F2]"
