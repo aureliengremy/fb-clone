@@ -109,8 +109,10 @@ import Check from "vue-material-design-icons/Check.vue";
 import Delete from "vue-material-design-icons/Delete.vue";
 
 
-import {storeToRefs} from "pinia";
 import {useGeneralStore} from "@/stores/general";
+import {storeToRefs} from "pinia";
+
+
 
 export default {
     components: {
@@ -133,10 +135,6 @@ export default {
         };
     },
     computed: {
-        isImageDisplay() {
-            const useGeneral = useGeneralStore();
-            return storeToRefs(useGeneral);
-        },
     },
     methods: {
         createComment() {
@@ -165,6 +163,14 @@ export default {
             router.get("/user/" + this.user.id);
         },
 
-    }
+    },
+    setup() {
+        const useGeneral = useGeneralStore();
+        const {isImageDisplay} = storeToRefs(useGeneral);
+
+        return {
+            isImageDisplay
+        };
+    },
 };
 </script>
