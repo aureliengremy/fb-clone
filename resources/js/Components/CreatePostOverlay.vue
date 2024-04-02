@@ -8,7 +8,7 @@
                         Create Post
                     </div>
                     <div
-                        @click="isPostOverlay = false"
+                        @click="updateIsPostOverlay(false)"
                         class="absolute right-3 rounded-full p-1.5 bg-gray-200 hover:bg-gray-300 cursor-pointer"
                     >
                         <Close :size="28" fillColor="#5E6771"/>
@@ -104,8 +104,7 @@
     </div>
 </template>
 
-<script setup>
-import { ref, reactive } from 'vue'
+<script>
 import { router, usePage } from '@inertiajs/vue3';
 
 import VideoImage from 'vue-material-design-icons/VideoImage.vue'
@@ -117,46 +116,61 @@ import Earth from 'vue-material-design-icons/Earth.vue'
 import DotsHorizontal from 'vue-material-design-icons/DotsHorizontal.vue'
 
 import { useGeneralStore } from '@/stores/general';
-import { storeToRefs } from 'pinia';
-const useGeneral = useGeneralStore()
-const { isPostOverlay } = storeToRefs(useGeneral)
 
-const emit = defineEmits(['showModal'])
-
-const user = usePage().props.auth.user
-
-let imageDisplay = ref('')
-
-const form = reactive({
-    text: null,
-    image: null,
-})
-let error = ref(null)
-
-const createPost = () => {
-    router.post('/post', form, {
-        forceFormData: true,
-        preserveScroll: true,
-        onError: errors => {
-            errors && errors.text ? error.value = errors.text : ''
-            errors && errors.image ? error.value = errors.image : ''
+export default {
+    components: {
+        VideoImage,
+        Image,
+        EmoticonOutline,
+        Close,
+        ChevronDown,
+        Earth,
+        DotsHorizontal,
+    },
+    props: {
+        image: String,
+        text: String,
+    },
+    data() {
+        return {
+            useGeneral: useGeneralStore(),
+            user: usePage().props.auth.user,
+            imageDisplay: null,
+            form: {
+                text: null,
+                image: null,
+            },
+            error: null,
+        };
+    },
+    methods: {
+        updateIsPostOverlay(value) {
+            this.useGeneral.isPostOverlay = value;
         },
-        onSuccess: () => {
-            form.text = null
-            form.image = null
-            imageDisplay.value = null
-            emit('showModal', false)
+        createPost() {
+            router.post('/post', this.form, {
+                forceFormData: true,
+                preserveScroll: true,
+                onError: errors => {
+                    errors && errors.text ? this.error.value = errors.text : ''
+                    errors && errors.image ? this.error.value = errors.image : ''
+                },
+                onSuccess: () => {
+                    this.form.text = null
+                    this.form.image = null
+                    this.imageDisplay = null
+                    this.$emit('showModal', false)
+                }
+            })
+        },
+        getUploadedImage(e) {
+            this.imageDisplay = URL.createObjectURL(e.target.files[0])
+            this.form.image = e.target.files[0]
+        },
+        clearImage() {
+            this.imageDisplay = null;
+            this.form.image = null;
         }
-    })
-}
-
-const getUploadedImage = (e) => {
-    imageDisplay.value = URL.createObjectURL(e.target.files[0])
-    form.image = e.target.files[0]
-}
-
-const clearImage = () => {
-    imageDisplay.value = null
-    form.image = null
-}
+    },
+};
 </script>
